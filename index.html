@@ -49,17 +49,21 @@
     const html = editor.getHtml();
     const css = editor.getCss();
 
-    fetch('https://n8n.srv787725.hstgr.cloud/webhook/grapesjs-update', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        html,
-        css,
-        timestamp: new Date().toISOString()
-      })
-    })
+ fetch('https://n8n.srv787725.hstgr.cloud/webhook/grapesjs-update', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    html,
+    css,
+    timestamp: new Date().toISOString(),  
+    client: "ClientABC",           
+    fileName: "landing-client.html" 
+  })
+})
+
+  
     .then(res => {
       console.log("Réponse reçue :", res);
       if (res.ok) {
